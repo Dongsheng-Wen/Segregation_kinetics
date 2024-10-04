@@ -171,12 +171,12 @@ class ternary_seg_profile:
             exp_term_ij_C = np.exp(Delta_G_ij_C/kBT)
             exp_term_ij_B = np.exp(Delta_G_ij_B/kBT)
             
-            Wij_C = np.array([1 - X_layers_C[i+1] - X_layers_B[i+1] for i in range(len(X_layers_C)-1) ] +[1-self.c0_B-self.c0_C])
-            Wij_B = np.array([1 - X_layers_C[i+1] - X_layers_B[i+1] for i in range(len(X_layers_B)-1) ] +[1-self.c0_B-self.c0_C])
+            Wij_C = np.array([1 - X_layers_C[i+1] for i in range(len(X_layers_C)-1) ] +[1-self.c0_C])
+            Wij_B = np.array([1 - X_layers_B[i+1] for i in range(len(X_layers_B)-1) ] +[1-self.c0_B])
             
             #print(Wij)
-            Wji_C = 1-X_layers_C-X_layers_B
-            Wji_B = 1-X_layers_C-X_layers_B
+            Wji_C = 1-X_layers_C
+            Wji_B = 1-X_layers_B
             #print(Wji)
             Xi_C = np.array([x for x in X_layers_C])
             Xi_B = np.array([x for x in X_layers_B])
