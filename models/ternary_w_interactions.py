@@ -130,10 +130,10 @@ class ternary_seg_profile:
         t = np.insert(np.cumsum(np.zeros(self.nt)+self.dt),0,0)
         excess_term_C = np.zeros(self.nd)
         excess_term_B = np.zeros(self.nd)
-        #t_all = 
+
         Delta_G_ij_C_vs_t = []
         Delta_G_ij_B_vs_t = []
-        # add excess term only to the first layer 
+
         
         # excess interaction terms
         A_term_B = self.L_AB + X_layers_C*self.L_ABC

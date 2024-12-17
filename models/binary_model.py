@@ -20,8 +20,8 @@ class binary_model:
                sublattice_fraction = 1):
 
         """
-        A class to calculate the segregation profiles as a function of time for a ternary system. 
-        The ternary system is represented as A-B-C, where A is solvent, B is solute #1, and C is solute #2.
+        A class to calculate the segregation profiles as a function of time for a binary system. 
+        The ternary system is represented as A-B, where A is solvent, B is solute. 
 
         ...
 
@@ -89,9 +89,6 @@ class binary_model:
 
 
     def dX1_dt_sublattice(self):
-        # E_seg: segregation energy for every layer in the system
-        # Q: energy barrier for every layer in the system: jump from i+1 to i layer
-        
         
         Delta_G_ij = np.array([self.E_seg[i] - self.E_seg[i+1] for i in range(len(self.E_seg)-1) ] + [0] )
         #print(Delta_G_ij)
@@ -106,11 +103,11 @@ class binary_model:
         #print(exp_term_ij)
         # initial condition, all layers have the same concentrations
         X_layers = np.zeros(self.nd)+self.c0
-        #print(X_layers)
+
         X_layers_vs_t = []
         X_layers_vs_t.append(X_layers)
         t = np.insert(np.cumsum(np.zeros(self.nt)+self.dt),0,0)
-        #t_all = 
+
         for ti in range(self.nt):
             Wij = np.array([self.sublattice_fraction - X_layers[i+1] for i in range(len(X_layers)-1) ] +[self.sublattice_fraction-self.c0]) 
             #print(Wij)
