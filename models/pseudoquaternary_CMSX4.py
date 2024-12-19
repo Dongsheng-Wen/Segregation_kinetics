@@ -123,20 +123,15 @@ class CMSX4_seg_profile:
         
         kBT = 8.617333262145e-5 * self.T #eV
         
-        
-        
-        #print(Delta_G_ij)
         Eb_ji_Co = self.Q_Co
         Eb_ji_Cr = self.Q_Cr
-        #print(Eb_ji)
         Dji_Co = self.diffusivity(self.D0_Co,Eb_ji_Co,self.T)# diffusion coefficient 
         Dji_Cr = self.diffusivity(self.D0_Cr,Eb_ji_Cr,self.T)# diffusion coefficient 
-        #print(Dji)
+
         prefactor_Co = Dji_Co/self.d**4
         prefactor_Cr = Dji_Cr/self.d**4
         
         
-        #print(exp_term_ij)
         # initial condition, all layers have the same concentrations
         X_layers_Co = np.zeros(self.nd)+self.c0_Co
         X_layers_Cr = np.zeros(self.nd)+self.c0_Cr
