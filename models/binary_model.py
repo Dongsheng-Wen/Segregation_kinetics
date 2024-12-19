@@ -89,7 +89,7 @@ class binary_model:
 
 
     def dX1_dt_sublattice(self):
-        
+        # Delta_G_ij is Delta_E_s_ij in Eq.1
         Delta_G_ij = np.array([self.E_seg[i] - self.E_seg[i+1] for i in range(len(self.E_seg)-1) ] + [0] )
         #print(Delta_G_ij)
         Eb_ji = self.Q

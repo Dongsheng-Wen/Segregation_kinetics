@@ -148,12 +148,12 @@ class CMSX4_seg_profile:
         t = np.insert(np.cumsum(np.zeros(self.nt)+self.dt),0,0)
         excess_term_Co = np.zeros(self.nd)
         excess_term_Cr = np.zeros(self.nd)
-        #t_all = 
+        
         Delta_G_ij_Co_vs_t = []
         Delta_G_ij_Cr_vs_t = []
         # add excess term only to the first layer 
         
-        # excess interaction terms
+        
         X_layers_Ni = 0.75-X_layers_Co
         X_layers_Al = 0.25-X_layers_Cr
         A_term_Cr = self.L_AlCr + X_layers_Co*self.L_AlCrCo + X_layers_Ni*self.L_AlCrNi + 61/3*(X_layers_Co*self.Lg_Co_AlCr + X_layers_Ni*self.Lg_Ni_AlCr) 
@@ -187,7 +187,7 @@ class CMSX4_seg_profile:
             
         Delta_excess_term_Cr = np.hstack([excess_term_Cr[:-1]-excess_term_Cr[1:],excess_term_Cr[-1]])
         Delta_excess_term_Co = np.hstack([excess_term_Co[:-1]-excess_term_Co[1:],excess_term_Co[-1]])
-        
+        # Delta_G_ij is Delta_E_s_ij in Eq.1 for Co and Cr
         Delta_G_ij_Co = Delta_G_ij_Co_0 + Delta_excess_term_Co
         Delta_G_ij_Cr = Delta_G_ij_Cr_0 + Delta_excess_term_Cr
         Delta_G_ij_Co_vs_t.append(Delta_G_ij_Co)

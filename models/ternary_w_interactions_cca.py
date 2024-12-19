@@ -104,7 +104,7 @@ class ternary_seg_profile:
         # C: solute-C
         kBT = 8.617333262145e-5 * self.T #eV
         
-        
+        # Delta_G_ij is Delta_E_s_ij in Eq.1 for C and B solutes
         Delta_G_ij_C_0 = np.array([self.E_seg_C[i] - self.E_seg_C[i+1] for i in range(len(self.E_seg_C)-1) ] + [0] )
         Delta_G_ij_B_0 = np.array([self.E_seg_B[i] - self.E_seg_B[i+1] for i in range(len(self.E_seg_B)-1) ] + [0] )
         #print(Delta_G_ij)
