@@ -151,7 +151,7 @@ class CMSX4_seg_profile:
         
         Delta_G_ij_Co_vs_t = []
         Delta_G_ij_Cr_vs_t = []
-        # add excess term only to the first layer 
+        # add excess term 
         
         
         X_layers_Ni = 0.75-X_layers_Co
